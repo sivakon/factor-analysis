@@ -2,6 +2,9 @@
 #' read dataset
 #' http://dl.dropbox.com/u/10246536/Web/RTutorialSeries/dataset_exploratoryFactorAnalysis.csv
 
+
+require(psych)
+require(GPArotation)
 data <- read.csv(url("http://dl.dropbox.com/u/10246536/Web/RTutorialSeries/dataset_exploratoryFactorAnalysis.csv"))
 
 head(data)
@@ -19,5 +22,5 @@ head(data)
 #'
 
 corMat <- cor(data)
-
-
+solution <- fa(r = corMat, nfactors = 2,rotate = "oblimin",fm = "pa")
+solution
